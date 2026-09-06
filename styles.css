@@ -1,0 +1,1533 @@
+/* Two-column layout: Arabic right, English left */
+.column-arabic-right {
+  display: flex;
+  flex-direction: row;
+}
+
+.column-arabic-right .arabic-cell {
+  order: 2;
+  flex: 1;
+  text-align: right;
+  padding-left: 16px;
+}
+
+.column-arabic-right .trans-cell {
+  order: 1;
+  flex: 1;
+  text-align: left;
+  border-right: 1px solid var(--border);
+  padding-right: 16px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root {
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #2b7a78;
+  --accent-light: #def2f1;
+  --border: #e2e8f0;
+  --shadow: 0 2px 12px rgba(44, 62, 80, 0.07);
+  --radius: 16px;
+  --font-main: 'Inter', Arial, sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: var(--font-main);
+  background: var(--bg);
+  color: #22223b;
+  font-size: 17px;
+  letter-spacing: 0.01em;
+  overflow-x: hidden;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(120deg, #f8fafc 0%, #eaf6fb 100%);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  border-radius: 0 0 var(--radius) var(--radius);
+  margin: 0;
+  border: 1px solid var(--border);
+  border-top: none;
+}
+
+.top-left {
+  display: flex;
+  align-items: center;
+  min-width: 50px;
+}
+
+.top-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  gap: 8px;
+}
+
+.top-right {
+  display: flex;
+  align-items: center;
+  min-width: 50px;
+  justify-content: flex-end;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.3em;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 0 #def2f1;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.main-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.surah-selector {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--accent-light);
+  font-size: 0.9em;
+  width: 200px;
+  outline: none;
+}
+
+.goto-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ayat-input {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--accent-light);
+  font-size: 0.9em;
+  width: 80px;
+  outline: none;
+}
+
+.go-btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.go-btn:hover {
+  background: #3aafa9;
+}
+
+.search-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.search-input {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--accent-light);
+  font-size: 0.9em;
+  width: 150px;
+  outline: none;
+}
+
+.search-btn {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.search-btn:hover {
+  background: #3aafa9;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.85em;
+  color: var(--muted);
+}
+
+.hamburger {
+  font-size: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--accent);
+  transition: color 0.2s;
+  margin: 0;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
+}
+
+.hamburger:hover {
+  color: #3aafa9;
+  background: var(--accent-light);
+}
+
+.settings-btn {
+  font-size: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--accent);
+  transition: color 0.2s;
+  margin: 0;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
+}
+
+.settings-btn:hover {
+  color: #3aafa9;
+  background: var(--accent-light);
+}
+
+.topbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  margin: 4px 4px 0 4px;
+  border: 1px solid var(--border);
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.2em;
+  margin-left: 10px;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 0 #def2f1;
+  display: inline-block;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.controls input,
+.controls button,
+.controls select {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--accent-light);
+  font-size: 1em;
+  transition: box-shadow 0.2s;
+  outline: none;
+}
+
+.controls input:focus,
+.controls button:focus,
+.controls select:focus {
+  box-shadow: 0 0 0 2px var(--accent-light);
+  border-color: var(--accent);
+}
+
+.controls button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.controls button:hover {
+  background: #3aafa9;
+}
+
+.main {
+  display: flex;
+  flex: 1;
+  padding: 4px;
+  gap: 8px;
+  position: relative;
+}
+
+/* Navigation Panel */
+.left-panel {
+  width: 280px;
+  background: var(--card);
+  padding: 8px;
+  border-radius: var(--radius);
+  height: calc(100vh - 120px);
+  overflow-y: auto;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  position: fixed;
+  left: -300px;
+  top: 60px;
+  z-index: 1000;
+  transition: left 0.3s ease;
+}
+
+.left-panel.show {
+  left: 4px;
+}
+
+.nav-section {
+  margin-bottom: 12px;
+}
+
+.nav-title {
+  margin: 0 0 8px 0;
+  padding: 8px;
+  background: var(--accent-light);
+  color: var(--accent);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: 600;
+  transition: background 0.2s;
+  user-select: none;
+}
+
+.nav-title:hover {
+  background: var(--accent);
+  color: white;
+}
+
+.nav-title.collapsed+.nav-content {
+  display: none;
+}
+
+.nav-content {
+  padding: 0 4px;
+}
+
+.bookmark-btn {
+  padding: 6px 12px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85em;
+  margin-bottom: 8px;
+}
+
+.bookmark-preview {
+  white-space: pre-wrap;
+  color: var(--muted);
+  font-size: 0.8em;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* Hierarchical Bookmark Styles */
+.bookmark-item {
+  margin: 2px 0;
+}
+
+.bookmark-list-link {
+  display: block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.bookmark-list-link:hover {
+  background-color: var(--accent-light, rgba(0, 123, 255, 0.1));
+  text-decoration: none;
+}
+
+.bookmark-toggle {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.bookmark-children {
+  border-left: 1px solid var(--border, #e0e0e0);
+  margin-left: 8px;
+  padding-left: 4px;
+}
+
+/* Settings Panel */
+.settings-panel {
+  width: 250px;
+  background: var(--card);
+  padding: 12px;
+  border-radius: var(--radius);
+  height: calc(100vh - 120px);
+  overflow-y: auto;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  position: fixed;
+  right: -280px;
+  top: 60px;
+  z-index: 1000;
+  transition: right 0.3s ease;
+}
+
+.settings-panel.show {
+  right: 4px;
+}
+
+.settings-section {
+  margin-bottom: 16px;
+}
+
+.settings-title {
+  margin: 0 0 12px 0;
+  color: var(--accent);
+  font-size: 1.1em;
+  font-weight: 600;
+  border-bottom: 2px solid var(--accent-light);
+  padding-bottom: 6px;
+}
+
+.setting-group {
+  margin-bottom: 12px;
+  padding: 8px;
+  background: var(--accent-light);
+  border-radius: 8px;
+}
+
+.setting-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: var(--accent);
+  font-size: 0.9em;
+}
+
+.size-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Dual Word Settings Styles */
+.dual-word-controls {
+  display: block;
+  padding: 8px 0;
+}
+
+.settings-title.collapsible {
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.settings-title.collapsible:after {
+  content: '▼';
+  position: absolute;
+  right: 0;
+  font-size: 0.8em;
+  transition: transform 0.3s;
+}
+
+.settings-title.collapsible.collapsed:after {
+  transform: rotate(-90deg);
+}
+
+.settings-title.collapsible.collapsed+.dual-word-controls,
+.settings-title.collapsible.collapsed+#notes-settings {
+  display: none;
+}
+
+.setting-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  gap: 8px;
+}
+
+.setting-row label {
+  font-size: 0.8em;
+  color: var(--accent);
+  font-weight: 500;
+  min-width: 80px;
+  margin: 0;
+}
+
+.setting-input {
+  flex: 1;
+  padding: 4px 6px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 0.8em;
+  background: white;
+  outline: none;
+  min-width: 60px;
+}
+
+.setting-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent-light);
+}
+
+.unit {
+  font-size: 0.75em;
+  color: var(--muted);
+  min-width: 25px;
+}
+
+.reset-btn {
+  width: 100%;
+  margin-top: 8px;
+  background: var(--muted);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.reset-btn:hover {
+  background: #5a6475;
+}
+
+.reader {
+  flex: 1;
+  background: var(--card);
+  padding: 8px 12px;
+  border-radius: var(--radius);
+  height: calc(100vh - 120px);
+  overflow: auto;
+  overflow-x: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  margin-left: 0;
+  transition: margin-left 0.3s ease, margin-right 0.3s ease;
+}
+
+.reader.nav-open {
+  margin-left: 290px;
+}
+
+.reader.settings-open {
+  margin-right: 260px;
+}
+
+.columns {
+  display: flex;
+  gap: 18px;
+}
+
+.col {
+  flex: 1;
+  padding: 18px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #fff, #f6fafd);
+  min-width: 0;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.bismillah {
+  font-family: 'p1-v2';
+}
+
+.arabic {
+  font-family: 'p1-v2';
+  direction: rtl !important;
+  text-align: right !important;
+  font-size: 28px !important;
+  line-height: 1.7 !important;
+  color: #22223b;
+  background: linear-gradient(90deg, #def2f1 0%, #fff 100%);
+  border-radius: 8px;
+  padding: 2px 0;
+}
+
+/* Font style classes */
+.font-uthmani .arabic,
+.font-uthmani .arabic-cell,
+.font-uthmani .bismillah {
+  font-family: 'p1-v2' !important;
+}
+
+.font-indo-pak .arabic,
+.font-indo-pak .arabic-cell,
+.font-indo-pak .bismillah {
+  font-family: 'indo-pak' !important;
+}
+
+#surah-name-current {
+  /* font-family: surahnames !important; */
+  /* font-size: 2em; */
+  text-align: center;
+  color: var(--accent);
+  background: var(--accent-light);
+  border-radius: 10px;
+  padding: 8px 18px;
+  box-shadow: var(--shadow);
+}
+
+.translation {
+  direction: ltr;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #22223b;
+  background: #f8fafc;
+  border-radius: 6px;
+  padding: 2px 0;
+}
+
+.ayat-number {
+  font-size: 0.85em;
+  color: var(--accent);
+  padding-left: 8px;
+  margin-left: 8px;
+  background: #eaf6fb;
+  border-radius: 6px;
+  padding: 2px 8px;
+}
+
+.note-icon {
+  font-size: 1em;
+  cursor: pointer;
+  vertical-align: super;
+  background: var(--accent-light);
+  padding: 4px;
+  border-radius: 8px;
+  color: var(--accent);
+  transition: background 0.2s;
+}
+
+.note-icon:hover {
+  background: #3aafa9;
+  color: #fff;
+}
+
+.note-superscript {
+  font-size: 0.8em;
+  cursor: pointer;
+  background: var(--accent-light);
+  padding: 2px 4px;
+  border-radius: 6px;
+  color: var(--accent);
+  transition: background 0.2s;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+/* .note-superscript:hover {
+  background: #3aafa9;
+  color: #fff;
+} */
+
+.short-note {
+  font-size: 0.8em;
+  color: var(--text-secondary);
+  background: rgba(58, 175, 169, 0.1);
+  padding: 2px 4px;
+  border-radius: 4px;
+  white-space: normal;
+  word-wrap: break-word;
+  font-style: italic;
+  line-height: 1;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.short-note-ruby {
+  font-size: 10px;
+  color: var(--text-secondary) !important;
+  padding: 1px 3px !important;
+  border-radius: 3px !important;
+  font-style: italic !important;
+  line-height: 1 !important;
+  white-space: normal !important;
+  word-break: break-word !important;
+}
+
+ruby {
+  ruby-align: start;
+  ruby-position: over;
+}
+
+rt {
+  font-size: 0.7em;
+  line-height: 1;
+}
+
+@font-face {
+  font-family: 'Amiri';
+  src: url('https://fonts.gstatic.com/s/amiri/v22/J7aRnpd8CGxBHqUp.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+.ayat-number-ar {
+  font-family: "Amiri", serif;
+}
+
+.trans-ayat {
+  padding: 12px 0;
+  border-bottom: 1px dashed var(--border);
+}
+
+.surah-item {
+  padding: 12px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 6px;
+  background: #f8fafc;
+  transition: background 0.2s, box-shadow 0.2s;
+  font-weight: 500;
+  color: #22223b;
+}
+
+.surah-item:hover {
+  background: var(--accent-light);
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+  color: var(--accent);
+}
+
+button.tag {
+  margin: 4px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--accent);
+  background: var(--accent-light);
+  color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+button.tag:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.toolbar {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+input[type=range] {
+  width: 150px;
+  accent-color: var(--accent);
+}
+
+mark {
+  background: #fff3b0;
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .main-controls {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .settings-btn {
+    margin: 10px 2px 12px 12px;
+  }
+
+  .search-group {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .left-panel {
+    left: -100vw;
+  }
+
+  .left-panel.show {
+    left: 10px;
+  }
+
+  .settings-panel {
+    /* width: calc(100vw - 20px); */
+    right: -100vw;
+  }
+
+  .settings-panel.show {
+    right: 10px;
+  }
+
+  .reader.nav-open,
+  .reader.settings-open {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .arabic {
+    font-size: 24px !important;
+  }
+
+  .topbar {
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .top-left,
+  .top-right {
+    position: absolute;
+    top: 8px;
+  }
+
+  .top-left {
+    left: 8px;
+  }
+
+  .top-right {
+    right: 8px;
+  }
+
+  .top-center {
+    width: 100%;
+    padding: 0 50px;
+  }
+
+  .brand {
+    font-size: 1em;
+    margin-bottom: 4px;
+  }
+
+  .main-controls {
+    gap: 4px;
+  }
+
+  .search-input,
+  .ayat-input {
+    width: 100px;
+  }
+
+}
+
+/* Keep small devices stacking */
+@media (max-width: 720px) {
+  .ayah-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end !important;
+    padding: 8px;
+  }
+
+  /* When column layout toggle is active on mobile, reverse the order */
+  .column-arabic-right .ayah-row {
+    flex-direction: column-reverse;
+  }
+
+  .hamburger {
+    position: relative;
+    top: auto;
+  }
+
+  .top-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    gap: 8px;
+  }
+
+  .arabic-cell {
+    font-size: 22px;
+    align-self: flex-end !important;
+    width: 100%;
+  }
+
+  .trans-cell {
+    font-size: 15px;
+    margin-left: 0px;
+    text-align: left !important;
+    direction: ltr !important;
+    align-self: flex-start !important;
+    width: 100%;
+  }
+
+  .main-controls {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .search-group {
+    width: 80vw;
+    justify-content: space-between;
+  }
+
+  .goto-group {
+    width: 80vw;
+  }
+
+  .ayat-input {
+    width: 40% !important;
+  }
+
+  .search-input {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .surah-selector {
+    width: 80vw;
+  }
+}
+
+@font-face {
+  font-family: 'p1-v2';
+  src: url('https://static-cdn.tarteel.ai/qul/fonts/me_quran_volt_newmet.ttf');
+}
+
+@font-face {
+  font-family: 'indo-pak';
+  src: url('https://static-cdn.tarteel.ai/qul/fonts/nastaleeq/indopak-nastaleeq-waqf-lazim.woff2?v=3.3');
+  /* Using same font as placeholder - replace with actual Indo Pak font URL when available */
+}
+
+@font-face {
+  font-family: surahnames;
+  src: url('https://files.catbox.moe/9wk6v0.ttf') format('truetype');
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.card-simple {
+  margin: 2px 0;
+  padding: 6px 8px;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* Ayah row modern */
+.reader-rows {
+  display: block;
+  width: 100%;
+}
+
+.ayah-row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin: 4px 0;
+  padding: 6px 8px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #fff, #f6fafd);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  min-width: 0;
+  transition: box-shadow 0.2s;
+}
+
+.ayah-row:hover {
+  box-shadow: 0 6px 24px rgba(44, 62, 80, 0.10);
+  border-color: var(--accent);
+}
+
+/* cells */
+.arabic-cell,
+.trans-cell {
+  flex: 1 1 50%;
+  min-width: 0;
+  margin-left: 15px;
+  padding: 2px 0;
+}
+
+.arabic-cell {
+  font-family: 'p1-v2';
+  direction: rtl;
+  text-align: right;
+  font-size: 32px;
+  line-height: 2;
+  color: #22223b;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.trans-cell {
+  direction: ltr;
+  text-align: left;
+  margin-left: 8px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #22223b;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.trans-text {
+  display: inline-block;
+  width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.cell-meta {
+  color: #9ca3af;
+  font-size: 1em;
+  margin-right: 8px;
+}
+
+.trans-meta-translator {
+  color: #9ca3af;
+  font-size: calc(1em - 3pt);
+  display: block;
+}
+
+/* copy link button */
+.copy-link-btn {
+  position: relative;
+  background: var(--accent-light);
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--accent);
+  opacity: 0.9;
+  margin-left: 8px;
+  border-radius: 6px;
+  padding: 4px 10px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.copy-link-btn:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* other styles kept */
+.trans-text {
+  color: #22223b;
+}
+
+.trans-meta {
+  font-size: 13px;
+  color: var(--muted);
+  margin-left: 10px;
+  display: inline;
+}
+
+.toolbar-new {
+  display: flex;
+  justify-content: center;
+  margin: 2px 0;
+}
+
+.left-panel.hidden {
+  display: none;
+}
+
+.font-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 2px 4px;
+  justify-content: center;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn {
+  padding: 4px 12px;
+  font-size: 18px;
+  min-width: 36px;
+  min-height: 36px;
+  border: 1px solid var(--accent);
+  background: var(--accent-light);
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--accent);
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+  display: inline-block;
+  min-width: 32px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0 4px;
+}
+
+.btn:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.dual-word {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0.4;
+  margin: 0 0.2em;
+}
+
+.dual-word .top-word {
+  font-size: 0.6em;
+  position: relative;
+  bottom: 0.3em;
+}
+
+.dual-word .bottom-word {
+  font-size: 0.6em;
+  position: relative;
+  top: 0.3em;
+}
+
+.ayat.card-simple {
+  position: relative;
+}
+
+.note-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(44, 62, 80, 0.18);
+  /* Remove blur for modal background */
+  backdrop-filter: none;
+}
+
+.note-modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: var(--radius);
+  width: 520px;
+  max-width: 95%;
+  min-width: 280px;
+  min-height: 120px;
+  resize: both;
+  overflow: hidden;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 32px rgba(44, 62, 80, 0.18);
+  border: 1px solid var(--border);
+  position: relative;
+}
+
+/* Enhanced resize handle for better mobile experience */
+.note-modal-content::after {
+  content: '⤡';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(135deg, transparent 20%, rgba(0, 123, 255, 0.15) 20%, rgba(0, 123, 255, 0.25) 80%, transparent 80%);
+  cursor: se-resize;
+  z-index: 1001;
+  border-bottom-right-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--accent, #007bff);
+  opacity: 0.8;
+  transition: all 0.2s ease;
+  pointer-events: auto;
+  touch-action: none;
+}
+
+.note-modal-content:hover::after {
+  opacity: 1;
+  background: linear-gradient(135deg, transparent 15%, rgba(0, 123, 255, 0.2) 15%, rgba(0, 123, 255, 0.4) 85%, transparent 85%);
+  transform: scale(1.1);
+}
+
+/* Even larger and more visible resize area for mobile */
+@media (max-width: 768px) {
+  .note-modal-content::after {
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    opacity: 0.9;
+    background: linear-gradient(135deg, transparent 15%, rgba(0, 123, 255, 0.2) 15%, rgba(0, 123, 255, 0.35) 85%, transparent 85%);
+  }
+  
+  .note-modal-content:hover::after {
+    transform: scale(1.05);
+  }
+}
+
+/* Add a subtle border to make resize area more visible */
+.note-modal-content::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  border-right: 2px solid rgba(0, 123, 255, 0.3);
+  border-bottom: 2px solid rgba(0, 123, 255, 0.3);
+  z-index: 999;
+  pointer-events: none;
+  border-bottom-right-radius: var(--radius);
+}
+
+@media (max-width: 768px) {
+  .note-modal-content::before {
+    width: 30px;
+    height: 30px;
+    border-width: 3px;
+  }
+}
+
+/* Mobile-specific styles for note modal */
+@media (max-width: 768px) {
+  .note-modal-content {
+    width: 95%;
+    max-width: none;
+    max-height: 90vh;
+    /* resize: none; */
+    /* Disable resize on mobile */
+  }
+  
+  /* Force scrollbar visibility on mobile */
+  .note-modal-body {
+    /* Force scrollbar to always show on mobile */
+    overflow-y: scroll !important;
+    /* Webkit scrollbar styling for mobile */
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Make scrollbar more visible on mobile */
+  .note-modal-body::-webkit-scrollbar {
+    width: 12px !important;
+    background-color: #f0f0f0;
+  }
+  
+  .note-modal-body::-webkit-scrollbar-track {
+    background: #e0e0e0 !important;
+    border-radius: 6px;
+  }
+  
+  .note-modal-body::-webkit-scrollbar-thumb {
+    background: var(--accent, #007bff) !important;
+    border-radius: 6px;
+    border: 2px solid #f0f0f0;
+  }
+  
+  .note-modal-body::-webkit-scrollbar-thumb:active {
+    background: var(--accent-dark, #0056b3) !important;
+  }
+}
+
+.note-modal-header {
+  padding: 16px 18px;
+  background: var(--accent);
+  color: white;
+  cursor: move;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.note-close {
+  cursor: pointer;
+  font-size: 24px;
+  color: #fff;
+  transition: color 0.2s;
+}
+
+.note-close:hover {
+  color: #def2f1;
+}
+
+.note-modal-body {
+  padding: 18px;
+  overflow-y: auto;
+  flex: 1;
+  background: #f8fafc;
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  /* Force scrollbar visibility */
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent, #007bff) #f0f0f0;
+  margin-bottom: 30px;
+  /* Ensure scrollbar shows on mobile */
+  -webkit-overflow-scrolling: touch;
+}
+
+.note-modal-body * {
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+}
+
+.note-modal-body p {
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+.note-modal-body h1,
+.note-modal-body h2,
+.note-modal-body h3 {
+  color: var(--accent);
+  margin: 12px 0 8px 0;
+}
+
+.note-modal-body ul,
+.note-modal-body ol {
+  margin: 8px 0;
+  padding-left: 20px;
+}
+
+.note-modal-body blockquote {
+  margin: 12px 0;
+  padding: 8px 12px;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-light);
+  border-radius: 4px;
+}
+
+.note-modal-body code {
+  background: #e2e8f0;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+/* Scrollbar styles moved to main .note-modal-body definition above */
+
+/* Webkit scrollbar styling for note modal */
+.note-modal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.note-modal-body::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 4px;
+}
+
+.note-modal-body::-webkit-scrollbar-thumb {
+  background: var(--accent, #007bff);
+  border-radius: 4px;
+}
+
+.note-modal-body::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-dark, #0056b3);
+}
+
+.reference-content-wrapper {
+  margin: 15px 0;
+  clear: both;
+}
+
+.reference-content {
+  background: rgba(58, 175, 169, 0.1);
+  border: 1px solid rgba(58, 175, 169, 0.3);
+  border-radius: 8px;
+  padding: 12px;
+  margin: 0;
+  animation: slideIn 0.3s ease-out;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.reference-content h4 {
+  color: var(--accent);
+  margin: 0 0 8px 0;
+  font-size: 1.1em;
+  line-height: 1.3;
+}
+
+.reference-content p {
+  margin: 6px 0;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.reference-content:last-child {
+  margin-bottom: 0;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.toolbar-new {
+  display: flex;
+  justify-content: center;
+  margin: 2px 0;
+}
+
+.left-panel.hidden {
+  display: none;
+}
+
+.hamburger {
+  font-size: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  color: var(--accent);
+  z-index: 100;
+  transition: color 0.2s;
+  margin: 0;
+  padding: 0 2px 0 0;
+  vertical-align: middle;
+}
+
+.hamburger:hover {
+  color: #3aafa9;
+}
+
+
+.font-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 2px 4px;
+  justify-content: center;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn {
+  padding: 4px 12px;
+  font-size: 16px;
+  border: 1px solid var(--accent);
+  background: var(--accent-light);
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--accent);
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+
+.dual-word {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0.4;
+  margin: 0 0.2em;
+}
+
+.dual-word .top-word {
+  font-size: 0.6em;
+  position: relative;
+  bottom: 0.3em;
+}
+
+.dual-word .bottom-word {
+  font-size: 0.6em;
+  position: relative;
+  top: 0.3em;
+}
+
+.ayat.card-simple {
+  position: relative;
+}
+
+
+/* Duplicate note modal styles removed - keeping original definition above */
+
+@font-face {
+  font-family: 'surah-name-v2-icon';
+  src: url('https://static-cdn.tarteel.ai/qul/fonts/surah-names/v2/surah-name-v2.ttf');
+  font-display: swap;
+}
